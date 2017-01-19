@@ -2,10 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
-
-//using Swashbuckle.Swagger.Annotations;
 using Microsoft.AspNetCore.Mvc;
-//using Microsoft.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 using TaskAPI.Models;
 using Swashbuckle.SwaggerGen.Annotations;
@@ -16,12 +13,6 @@ namespace TaskAPI.Controllers
     [Route("api/[controller]")]
     public class TaskListController : Controller
     {
-        //private readonly TaskContext _context;
-        //public TaskListController(TaskContext context)
-        //{
-        //    _context = context;
-        //}
-
         private readonly ITaskService _taskService;
 
         public TaskListController(ITaskService taskService)
@@ -33,7 +24,6 @@ namespace TaskAPI.Controllers
         [HttpGet("{userId}")]
         public List<TaskList> GetAll(string userId)
         {
-            //return await _context.TaskLists.Where(p => p.UserId == userId && p.IsDeleted != true).ToListAsync();
             return _taskService.TaskLists.Where(p => p.UserId == userId && p.IsDeleted != true).ToList();
         }
 
@@ -57,13 +47,8 @@ namespace TaskAPI.Controllers
                     {
                         return BadRequest();
                     }
-                    //int iMax = 0;
-                    //if (_taskService.TaskLists.Count > 0)
-                    //{
-                    //    _taskService.TaskLists.Max(obj => obj.Id);
-                    //}
+                    
                     TaskList item = new Models.TaskList();
-                    //item.Id = iMax + 1;
                     item.TaskListId = Guid.NewGuid().ToString().Replace("-", "");
                     item.UserId = request.UserId;
                     item.CreatedOnUtc = DateTime.UtcNow;

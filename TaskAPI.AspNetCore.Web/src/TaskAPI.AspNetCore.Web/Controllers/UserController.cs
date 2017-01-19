@@ -14,14 +14,7 @@ namespace TaskAPI.AspNetCore.Web
     [Route("api/[controller]")]
     public class UserController : Controller
     {
-        private readonly TaskContext _context;
-
         private readonly ITaskService _taskService;
-
-        //public UserController(TaskContext context)
-        //{
-        //    _context = context;
-        //}
 
         public UserController(ITaskService taskService)
         {
@@ -32,7 +25,6 @@ namespace TaskAPI.AspNetCore.Web
         [HttpGet]
         public IEnumerable<User> GetAll()
         {
-            //return await _context.Users.Where(p=>p.IsDeleted != true).ToListAsync();
             return _taskService.Users.Where(p=> p.IsDeleted != true).ToList();
         }
 
@@ -40,7 +32,6 @@ namespace TaskAPI.AspNetCore.Web
         [HttpGet("{email}")]
         public User Get(string email)
         {
-            //var item = await _context.Users.FirstOrDefaultAsync(x => x.EmailAddress == email && x.IsDeleted != true);
             var item = _taskService.Users.Find(obj => (string.Compare(email, obj.EmailAddress, true) == 0) && !obj.IsDeleted.GetValueOrDefault());
             if (item != null)
             {
@@ -64,7 +55,6 @@ namespace TaskAPI.AspNetCore.Web
 
             else
             {
-                //var itemExists = await _context.Users.AnyAsync(i => i.EmailAddress == request.EmailAddress && i.IsDeleted != true);
                 var itemExists = _taskService.Users.Any(i => (string.Compare(i.EmailAddress, request.EmailAddress, true) == 0));
                 if (itemExists)
                 {
@@ -91,8 +81,6 @@ namespace TaskAPI.AspNetCore.Web
         [HttpDelete]
         public IActionResult Delete([FromBody]DeleteUserRequest request)
         {
-            //var item = await _context.Users.FirstOrDefaultAsync(x => x.UserId == request.UserId && x.IsDeleted != true);
-
             var item = _taskService.Users.FirstOrDefault(x => x.userId == request.UserId && x.IsDeleted != true);
             if (item == null)
             {

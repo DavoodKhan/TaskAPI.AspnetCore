@@ -38,21 +38,8 @@ namespace TaskAPI.AspNetCore.Web
         // This method gets called by the runtime. Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services)
         {
-
-
-            //services.AddTransient<ITaskService, TaskService>(factory => Configuration.GetConnectionString("mongo"));
-
+          
             services.AddTransient<ITaskService, TaskService>(obj => { return new TaskService(Configuration.GetConnectionString("TaskDB")); });
-
-       //     services
-       //.AddEntityFrameworkInMemoryDatabase()
-       //.AddDbContext<TaskContext>(
-       //    (serviceProvider, options) =>
-       //    {
-       //        options
-       //             .UseInternalServiceProvider(serviceProvider)
-       //             .UseInMemoryDatabase();
-       //    });
 
            var provider = services.BuildServiceProvider();
 
@@ -62,8 +49,7 @@ namespace TaskAPI.AspNetCore.Web
 
             services.AddMvc();
 
-            services.Configure<TaskConfig>(Configuration);
-        }
+          }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

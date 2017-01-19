@@ -3,7 +3,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-//using Microsoft.Data.Entity;
 using Microsoft.EntityFrameworkCore;
 using TaskAPI.Models;
 using TaskAPI.AspNetCore.Web.Models.Persistent;
@@ -13,13 +12,6 @@ namespace TaskAPI.Controllers
     [Route("api/[controller]")]
     public class TaskController : Controller
     {
-        //private readonly TaskContext _context;
-        //public TaskController(TaskContext context)
-        //{
-        //    _context = context;
-        //}
-
-
         private readonly ITaskService _taskService;
 
         public TaskController(ITaskService taskService)

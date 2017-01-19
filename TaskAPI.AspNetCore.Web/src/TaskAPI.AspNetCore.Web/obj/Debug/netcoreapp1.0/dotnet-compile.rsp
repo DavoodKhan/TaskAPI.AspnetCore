@@ -193,7 +193,6 @@
 --resource:"D:\TaskAPI.AspnetCore\TaskAPI.AspNetCore.Web\src\TaskAPI.AspNetCore.Web\obj\Debug\netcoreapp1.0\TaskAPI.AspNetCore.Webdotnet-compile.deps.json",TaskAPI.AspNetCore.Web.deps.json
 D:\TaskAPI.AspnetCore\TaskAPI.AspNetCore.Web\src\TaskAPI.AspNetCore.Web\Program.cs
 D:\TaskAPI.AspnetCore\TaskAPI.AspNetCore.Web\src\TaskAPI.AspNetCore.Web\Startup.cs
-D:\TaskAPI.AspnetCore\TaskAPI.AspNetCore.Web\src\TaskAPI.AspNetCore.Web\TaskConfig.cs
 D:\TaskAPI.AspnetCore\TaskAPI.AspNetCore.Web\src\TaskAPI.AspNetCore.Web\Controllers\TaskController.cs
 D:\TaskAPI.AspnetCore\TaskAPI.AspNetCore.Web\src\TaskAPI.AspNetCore.Web\Controllers\TaskListController.cs
 D:\TaskAPI.AspnetCore\TaskAPI.AspNetCore.Web\src\TaskAPI.AspNetCore.Web\Controllers\UserController.cs
